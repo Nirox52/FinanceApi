@@ -8,9 +8,6 @@ docker compose up -d
 - uv sync
 - uv run uvicorn main:app --reload
 
-### Bot
-- uv sync
-- uv run uvicorn main.py
 
 ## Documentation
 ### User
