@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from database import Base, engine
-from models import users, operations
+from models import  operations, users
 from routers import user_router, operation_router
 
 app = FastAPI()
 
+Base.metadata.drop_all(bind=engine)
 Base.metadata.create_all(bind=engine)
 
 app.include_router(user_router.router)

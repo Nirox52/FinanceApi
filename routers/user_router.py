@@ -12,15 +12,15 @@ def get_db():
     finally:
         db.close()
 
-@router.post("/")
+@router.post("/",tags=["Users"])
 def create_user(telegram_id: int, db: Session = Depends(get_db)):
     return user_crud.create_user(db, telegram_id)
 
-@router.get("/{telegram_id}")
+@router.get("/{telegram_id}",tags=["Users"])
 def get_user(telegram_id: int, db: Session = Depends(get_db)):
     return user_crud.get_user_by_telegram_id(db, telegram_id)
 
-@router.delete("/{telegram_id}")
+@router.delete("/{telegram_id}",tags=["Users"])
 def delete_user(telegram_id: int, db: Session = Depends(get_db)):
     return user_crud.delete_user_by_telegram_id(db, telegram_id)
 
